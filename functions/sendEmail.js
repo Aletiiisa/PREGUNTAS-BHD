@@ -8,7 +8,7 @@ exports.handler = async function(event, context) {
         service: 'gmail',
         auth: {
             user: 'cuentaluperonp5@gmail.com',
-            pass: 'hkqlbwibpmntqojg',
+            pass: 'ogynqksiltkdnuoz',
         },
     });
 
