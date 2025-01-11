@@ -156,7 +156,7 @@
                 schoolName
             };
 
-            fetch('/functions/sendEmail', {
+            fetch('/netlify/functions/sendEmail', {
                 method: 'POST',
                 body: JSON.stringify(formData),
                 headers: {
