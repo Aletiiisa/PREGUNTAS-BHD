@@ -154,16 +154,12 @@
         .then(response => response.json())
         .then(data => {
             if (data.message === 'Correo enviado con éxito') {
-                alert('Las respuestas fueron enviadas correctamente.');
                 // Redirigir según el dispositivo
                 redirectUser();
-            } else {
-                alert('Hubo un error al enviar las respuestas.');
             }
         })
         .catch(error => {
             console.error('Error al enviar las respuestas:', error);
-            alert('Hubo un error al enviar las respuestas.');
         });
     });
 
